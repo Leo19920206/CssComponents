@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<%  for(var i in htmlWebpackPlugin.files.css){ %>
+		<link rel="alternate" href=<%=htmlWebpackPlugin.files.css[i]%>>
+	<% } %>
+</head>
+<body>
+	<%= htmlWebpackPlugin.options.date %>
+	<br>
+	<br>
+	<br>
+	<% for(var key in htmlWebpackPlugin) { %>
+		<%= key %>
+		<br>
+	<% } %> 
+	<br>
+	<br>
+	<br>
+	<% for(var key in htmlWebpackPlugin.files) { %>
+		<%= key %>:
+		<%= JSON.stringify(htmlWebpackPlugin.files[key]) %>
+		<br>
+	<% } %>
+	<br>
+	<br>
+	<br>
+	<% for(var key in htmlWebpackPlugin.options) { %>
+		<%= key %>:
+		<%= JSON.stringify(htmlWebpackPlugin.options[key]) %>
+		<br>
+	<% } %>
+	<%  for(var i in htmlWebpackPlugin.files.js){ %>
+		<script src=<%=htmlWebpackPlugin.files.js[i]%> type="text/javascript" charset="utf-8" async defer></script>
+	<% } %>
+
+</body>
+</html>
