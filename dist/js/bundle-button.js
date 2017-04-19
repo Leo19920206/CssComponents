@@ -10,7 +10,7 @@
 })(this, function() {
 return webpackJsonpBadge([1],{
 
-/***/ 2:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24,5 +24,5 @@ function index() {
 
 /***/ })
 
-},[2]);
+},[3]);
 });

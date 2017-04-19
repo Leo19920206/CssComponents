@@ -1,3 +1,1 @@
-1 what is vendors?
-2 entry key:[] how this work
-3 what is child chunks
+vendors to chunk lays on the entry type

@@ -4,7 +4,9 @@
     "description": "simple cssComponents",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "webpack":"webpack",
+        "testv":"node_modules/.bin/webpack"
     },
     "author": "",
     "license": "ISC",
@@ -15,7 +17,8 @@
         "style-loader": "latest",
         "less-loader": "latest",
         "babel-loader":"latest",
-         "babel-core":"latest",
-          "babel-preset-env" :"latest"
+        "babel-core":"latest",
+        "babel-preset-env" :"latest",
+        "jquery":"latest"
     }
 }

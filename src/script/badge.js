@@ -1,5 +1,5 @@
 import "./x.js";
-import '../css/common.css';
+const $ = require("jquery");
 function test(){
-	return 1;
+	return 123;
 }
