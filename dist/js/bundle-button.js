@@ -8,9 +8,9 @@
 	else
 		root["Badge"] = factory();
 })(this, function() {
-return webpackJsonpBadge([2],[
-/* 0 */,
-/* 1 */
+return webpackJsonpBadge([1],{
+
+/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18,10 +18,11 @@ return webpackJsonpBadge([2],[
 
 __webpack_require__(0);
 
-function test() {
-	return 1;
+function index() {
+	var ixx = 1;
 }
 
 /***/ })
-],[1]);
+
+},[2]);
 });
