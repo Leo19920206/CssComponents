@@ -5,23 +5,27 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "webpack":"webpack",
-        "testv":"node_modules/.bin/webpack"
+        "webpack": "webpack",
+        "testv": "node_modules/.bin/webpack"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
         "webpack": "latest",
-        "html-webpack-plugin":"latest",
-        "css-loader": "latest",
+
+        "html-webpack-plugin": "latest",
+
         "style-loader": "latest",
-        "postcss-loader":"latest",
-        "autoprefixer":"latest",
-        "extract-text-webpack-plugin":"latest",
-        "less-loader":"latest",
-        "babel-loader":"latest",
-        "babel-core":"latest",
-        "babel-preset-env" :"latest",
-        "jquery":"latest"
+        "extract-text-webpack-plugin": "latest",
+        "css-loader": "latest",
+        "postcss-loader": "latest",
+        "autoprefixer": "latest",
+        "less-loader": "latest",
+
+        "babel-loader": "latest",
+        "babel-core": "latest",
+        "babel-preset-env": "latest",
+        
+        "jquery": "latest"
     }
 }

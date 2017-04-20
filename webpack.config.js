@@ -9,12 +9,12 @@ module.exports = {
         "button": './src/script/button.js',
         "x": "jquery"
     },
-    output: {
+    output: {–
         path: path.resolve(__dirname, "dist"), // string
         filename: "js/bundle-[name].js", // string
         library: "Badge", // string,
         libraryTarget: "umd", // universal module definition
-        publicPath: "http://git"
+        // publicPath: "http://git"
     },
     plugins: [
         new htmlWebpackPlugin({
@@ -47,76 +47,75 @@ module.exports = {
 
     ],
     module: {
-        rules: [
-            // {
-            //     test: /\.less$/,
-            //     use: [
-            //         {
-            //             loader: "style-loader"
-            //         }, {
-            //             loader: "css-loader",
-            //             options: {
-            //                 importLoaders: 2
-            //             }
-            //         }, {
-            //             loader: "postcss-loader",
-            //             options: {
-            //                 plugins: function() {
-            //                     return [
-            //                         require('precss'),
-            //                         require('autoprefixer')
-            //                     ];
-            //                 }
-            //             }
-            //         }, {
-            //             loader: "less-loader"
-            //         }
-            //     ]
-            // }, 
-            // {
-            //     test: /\.css$/,
-            //     use: ExtractTextPlugin.extract({
-            //         use: [{
-            //             loader: "style-loader"
-            //         }, {
-            //             loader: "css-loader"
-
-            //         }, {
-            //             loader: "postcss-loader",
-            //             // options: {
-            //             //     plugins: function() {
-            //             //         return [
-            //             //             require('precss'),
-            //             //             require('autoprefixer')
-            //             //         ];
-            //             //     }
-            //             // }
-            //         }],
-            //         fallback:"style-loader"
-            //     })
-            // },
-             {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['env']
+        rules: [{
+            test: /\.less$/,
+            use: [{
+                loader: "css-loader",
+                options: {
+                    importLoaders: 2
+                }
+            }, {
+                loader: "postcss-loader",
+                options: {
+                    plugins: function() {
+                        return [
+                            require('autoprefixer')
+                        ];
                     }
                 }
-            },
-            {
-                test: /\.css$/,
+            }, {
+                loader: "less-loader"
+            }]，
+            fallback: "style-loader"
+        }, {
+            test: /\.sass$/,
+            use: [{
+                loader: "css-loader",
+                options: {
+                    importLoaders: 2
+                }
+            }, {
+                loader: "postcss-loader",
+                options: {
+                    plugins: function() {
+                        return [
+                            require('autoprefixer')
+                        ];
+                    }
+                }
+            }, {
+                loader: "sass-loader"
+            }]，
+            fallback: "style-loader"
+        }, {
+            test: /\.css$/,
+            use: ExtractTextPlugin.extract({
                 use: [{
-                        loader: "style-loader"
-                    }, {
-                        loader: "css-loader"
-
-                    }, {
-                        loader: "postcss-loader"
-                       
+                    loader: "css-loader",
+                    options: {
+                        importLoaders: 2
+                    }
+                }, {
+                    loader: "postcss-loader",
+                    options: {
+                        plugins: function() {
+                            return [
+                                require('autoprefixer')
+                            ];
+                        }
+                    }
                 }],
-            }, 
-        ]
+                fallback: "style-loader"
+            })
+        }, {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['env']
+                }
+            }
+        }]
     }
 };
