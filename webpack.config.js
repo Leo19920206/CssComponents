@@ -1,4 +1,5 @@
 const htmlWebpackPlugin = require("html-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require("webpack");
 const path = require('path');
 module.exports = {
@@ -6,7 +7,7 @@ module.exports = {
     entry: {
         "badge": './src/script/badge.js',
         "button": './src/script/button.js',
-        "x":"jquery"
+        "x": "jquery"
     },
     output: {
         path: path.resolve(__dirname, "dist"), // string
@@ -23,14 +24,14 @@ module.exports = {
             "favicon": '',
             "inject": true, //true,false,'head','body';
             "date": new Date(),
-            "chunks": ['common','badge'],
+            "chunks": ['common', 'badge'],
             "minify": {
                 // "removeComments":true,
                 // "removeTagWhitespace":true,
                 // "collapseWhitespace":true,
             }
         }),
-        
+
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'vendor',
         //     minChunks: function (module) {
@@ -39,29 +40,83 @@ module.exports = {
         //     }
         // }),
         //CommonChunksPlugin will now extract all the common modules from vendor and main bundles
-        new webpack.optimize.CommonsChunkPlugin({ 
-            name: ["common","x"] //But since there are no more common modules between them we end up with just the runtime code included in the manifest file
-        })
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: ["common", "x"] //But since there are no more common modules between them we end up with just the runtime code included in the manifest file
+        // }),
+        new ExtractTextPlugin("xx.css"),
+
     ],
     module: {
-        rules: [{
-            test: /\.less$/,
-            use: [{
-                loader: "style-loader" // creates style nodes from JS strings
-            }, {
-                loader: "css-loader" // translates CSS into CommonJS
-            }, {
-                loader: "less-loader" // compiles Less to CSS
-            }]
-        }, {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['env']
+        rules: [
+            // {
+            //     test: /\.less$/,
+            //     use: [
+            //         {
+            //             loader: "style-loader"
+            //         }, {
+            //             loader: "css-loader",
+            //             options: {
+            //                 importLoaders: 2
+            //             }
+            //         }, {
+            //             loader: "postcss-loader",
+            //             options: {
+            //                 plugins: function() {
+            //                     return [
+            //                         require('precss'),
+            //                         require('autoprefixer')
+            //                     ];
+            //                 }
+            //             }
+            //         }, {
+            //             loader: "less-loader"
+            //         }
+            //     ]
+            // }, 
+            // {
+            //     test: /\.css$/,
+            //     use: ExtractTextPlugin.extract({
+            //         use: [{
+            //             loader: "style-loader"
+            //         }, {
+            //             loader: "css-loader"
+
+            //         }, {
+            //             loader: "postcss-loader",
+            //             // options: {
+            //             //     plugins: function() {
+            //             //         return [
+            //             //             require('precss'),
+            //             //             require('autoprefixer')
+            //             //         ];
+            //             //     }
+            //             // }
+            //         }],
+            //         fallback:"style-loader"
+            //     })
+            // },
+             {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env']
+                    }
                 }
-            }
-        }]
+            },
+            {
+                test: /\.css$/,
+                use: [{
+                        loader: "style-loader"
+                    }, {
+                        loader: "css-loader"
+
+                    }, {
+                        loader: "postcss-loader"
+                       
+                }],
+            }, 
+        ]
     }
 };
