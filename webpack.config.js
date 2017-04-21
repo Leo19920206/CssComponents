@@ -5,11 +5,12 @@ const path = require('path');
 module.exports = {
     // context:"",
     entry: {
-        "badge": './src/script/badge.js',
-        "button": './src/script/button.js',
-        "x": "jquery"
+        // "badge": './src/script/badge.js',
+        // "button": './src/script/button.js',
+        // "x": "jquery"
+        buttons: "./src/script/buttons.js"
     },
-    output: {–
+    output: {
         path: path.resolve(__dirname, "dist"), // string
         filename: "js/bundle-[name].js", // string
         library: "Badge", // string,
@@ -24,7 +25,7 @@ module.exports = {
             "favicon": '',
             "inject": true, //true,false,'head','body';
             "date": new Date(),
-            "chunks": ['common', 'badge'],
+            "chunks": ['buttons'],
             "minify": {
                 // "removeComments":true,
                 // "removeTagWhitespace":true,
@@ -65,28 +66,31 @@ module.exports = {
                 }
             }, {
                 loader: "less-loader"
-            }]，
-            fallback: "style-loader"
+            }],
+            // fallback: "style-loader"
         }, {
-            test: /\.sass$/,
-            use: [{
-                loader: "css-loader",
-                options: {
-                    importLoaders: 2
-                }
-            }, {
-                loader: "postcss-loader",
-                options: {
-                    plugins: function() {
-                        return [
-                            require('autoprefixer')
-                        ];
+            test: /\.scss$/,
+            use: ExtractTextPlugin.extract({
+                use: [{
+                    loader: "css-loader",
+                    options: {
+                        importLoaders: 2
                     }
-                }
-            }, {
-                loader: "sass-loader"
-            }]，
-            fallback: "style-loader"
+                }, {
+                    loader: "postcss-loader",
+                    options: {
+                        plugins: function() {
+                            return [
+                                require('autoprefixer')
+                            ];
+                        }
+                    }
+                }, {
+                    loader: "sass-loader"
+                }],
+                fallback: "style-loader"
+            })
+
         }, {
             test: /\.css$/,
             use: ExtractTextPlugin.extract({

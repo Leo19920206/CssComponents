@@ -1,4 +1,5 @@
-var gotIt = function (){
+var gotIt = function() {
 	return "test for common";
 }
-export default gotIt ;
+export default gotIt;
+

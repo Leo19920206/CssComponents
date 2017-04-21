@@ -21,6 +21,9 @@
         "postcss-loader": "latest",
         "autoprefixer": "latest",
         "less-loader": "latest",
+        "sass-loader": "latest",
+        "node-sass":"latest",
+        "sass-loader" :"latest",
 
         "babel-loader": "latest",
         "babel-core": "latest",

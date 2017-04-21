@@ -1,7 +1,46 @@
-html,body{
-	background: red;
-	display:-webkit-box;
-	display:-ms-flexbox;
-	display:flex;
-	
-}
+* {
+  box-sizing: border-box; }
+
+.heli-btn {
+  outline: none;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 13px;
+  line-height: 1.4;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: #f17c67;
+  border-color: #f17c67;
+  font-weight: normal; }
+  .heli-btn:focus, .heli-btn.focus {
+    color: #ffffff;
+    background-color: #ed5438;
+    border-color: #c62e12; }
+  .heli-btn:hover {
+    color: #ffffff;
+    background-color: #ed5438;
+    border-color: #ec4c2f; }
+  .heli-btn:active, .heli-btn.active {
+    color: #ffffff;
+    background-color: #ed5438;
+    border-color: #ec4c2f; }
+    .heli-btn:active:hover, .heli-btn:active:focus, .heli-btn:active.focus, .heli-btn.active:hover, .heli-btn.active:focus, .heli-btn.active.focus {
+      color: #ffffff;
+      background-color: #ea3818;
+      border-color: #c62e12; }
+  .heli-btn:active, .heli-btn.active {
+    background-image: none; }
+  .heli-btn.disabled:hover, .heli-btn.disabled:focus, .heli-btn.disabled.focus, .heli-btn[disabled]:hover, .heli-btn[disabled]:focus, .heli-btn[disabled].focus,
+  fieldset[disabled] .heli-btn:hover,
+  fieldset[disabled] .heli-btn:focus,
+  fieldset[disabled] .heli-btn.focus {
+    background-color: #f17c67;
+    border-color: #f17c67; }
